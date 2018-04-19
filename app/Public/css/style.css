@@ -27,13 +27,29 @@ main h1 {
     font-weight: 300;
 }
 
+/* Youtube Reflexive */
+.jumbotron {
+    position: relative;
+    padding-bottom: 50%;
+    padding-top: 35px; height: 0; overflow: hidden;
+}
+
+.jumbotron iframe,
+.jumbotron object,
+.jumbotron embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 #logo-icon {
    margin-left: 50px;
    margin-top: 20px;
 }
 
 #logo {
-    font-family: 'Shrikhand', cursive; 
     margin-left: 50px;
     margin-top: 20px;
 }
