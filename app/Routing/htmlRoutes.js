@@ -4,10 +4,17 @@
 
 var path = require('path');
 
+// ================================================================================
+//ROUTE MANAGEMENT
+// ================================================================================
 module.exports = function (app) {
+
+    //Route to display the survey page
     app.get("/survey", function (request, response) {
         response.sendFile(path.join(__dirname, "./../Public/0-survey.html"));
     });
+
+    //If no matching route is found, default to the home page
     app.get("*", function (request, response) {
         response.sendFile(path.join(__dirname, "./../Public/0-home.html"));
     });

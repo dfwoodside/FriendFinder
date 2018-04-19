@@ -10,6 +10,10 @@
 
 // The modal should display both the name and picture of the closest match.
 
+// ===============================================================================
+// LOAD DATA
+// Linking the routes to "data" sources that hold the array friends data
+// ===============================================================================
 var friends = require('./../Data/friends.js');
 // console.log(friends);
 
@@ -18,6 +22,7 @@ module.exports = function (app) {
         response.json(friends);
     });
 
+    //Updates the friends array based on the input from the client (aka UI)
     app.post("/api/friends", function (request, response) {
         var userScores = request.body.scores;
         var bestDifference = 1000;
@@ -26,9 +31,11 @@ module.exports = function (app) {
         for (var i = 0; i < friends.length; i++) {
             var friendDifference = 0;
 
+            //Determines the sum difference of each friend score to the user's score
             for (var j = 0; j < userScores.length; j++) {
                 friendDifference += Math.abs(userScores[j] - friends[i].scores[j]);
             }
+            //Searchs for the lowest summed difference of friend score to the user's score
             if (friendDifference < bestDifference) {
                 bestDifference = friendDifference;
                 console.log("New friend found: ")
